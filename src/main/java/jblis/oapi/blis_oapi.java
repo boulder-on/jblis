@@ -1,10 +1,7 @@
 package jblis.oapi;
 
 import jblis.constants.constdata_t;
-import jblis.types.num_t;
-import jblis.types.obj_t;
-import jblis.types.rntm_t;
-import jblis.types.timpl_t;
+import jblis.types.*;
 import jpassport.Passport;
 import jpassport.annotations.RefArg;
 
@@ -42,14 +39,14 @@ public interface blis_oapi extends Passport {
     }
 
     // TODO, these are broken. The conversion to native memory is not correct. Why?
-    public static obj_t BLIS_TWO = create_constant(constdata_t.init_const(2.0));
-    public static obj_t BLIS_ONE = create_constant(constdata_t.init_const(1.0));
-    public static obj_t BLIS_ZERO = create_constant(constdata_t.init_const(0.0));
-    public static obj_t BLIS_MINUS_ONE = create_constant(constdata_t.init_const(-1.0));
-    public static obj_t BLIS_MINUS_TWO = create_constant(constdata_t.init_const(-2.0));
-    public static obj_t BLIS_ONE_I = create_constant(constdata_t.init_const_ri(0.0, 1.0));
-    public static obj_t BLIS_MINUS_ONE_I = create_constant(constdata_t.init_const_ri(0.0, -1.0));
-    public static obj_t BLIS_NAN = create_constant(constdata_t.init_const_ri(Double.NaN, Double.NaN));
+    obj_t BLIS_TWO = create_constant(constdata_t.init_const(2.0));
+    obj_t BLIS_ONE = create_constant(constdata_t.init_const(1.0));
+    obj_t BLIS_ZERO = create_constant(constdata_t.init_const(0.0));
+    obj_t BLIS_MINUS_ONE = create_constant(constdata_t.init_const(-1.0));
+    obj_t BLIS_MINUS_TWO = create_constant(constdata_t.init_const(-2.0));
+    obj_t BLIS_ONE_I = create_constant(constdata_t.init_const_ri(0.0, 1.0));
+    obj_t BLIS_MINUS_ONE_I = create_constant(constdata_t.init_const_ri(0.0, -1.0));
+    obj_t BLIS_NAN = create_constant(constdata_t.init_const_ri(Double.NaN, Double.NaN));
 
 
     void bli_obj_create(num_t dt, long m, long n, long rs, long cs, @RefArg obj_t[] obj);
@@ -156,6 +153,203 @@ public interface blis_oapi extends Passport {
        obj_t[]  b);
     //------Level 1d----------
 
+    //------Level 1m----------
+    void bli_addm(
+       obj_t[]  a,
+       obj_t[]  b);
+    void bli_axpym(
+       obj_t[]  alpha,
+       obj_t[]  a,
+       obj_t[]  b);
+    void bli_copym(
+       obj_t[]  a,
+       obj_t[]  b);
+    void bli_invscalm(
+       obj_t[]  alpha,
+       obj_t[]  a);
+    void bli_scalm(
+       obj_t[]  alpha,
+       obj_t[]  a);
+    void bli_scal2m(
+       obj_t[]  alpha,
+       obj_t[]  a,
+       obj_t[]  b);
+    void bli_setm(
+       obj_t[]  alpha,
+       obj_t[]  a);
+    void bli_setrm(
+       obj_t[]  alpha,
+       obj_t[]  a);
+    void bli_setim(
+       obj_t[]  alpha,
+       obj_t[]  a);
+    void bli_subm(
+       obj_t[]  a,
+       obj_t[]  b);
+
+    //------Level 1m----------
+
+    //------Level 1f----------
+    void bli_axpy2v
+    (
+       obj_t[]  alphax,
+       obj_t[]  alphay,
+       obj_t[]  x,
+       obj_t[]  y,
+       obj_t[]  z
+    );
+    void bli_dotaxpyv
+            (
+       obj_t[]  alpha,
+       obj_t[]  xt,
+       obj_t[]  x,
+       obj_t[]  y,
+       obj_t[]  rho,
+       obj_t[]  z
+            );
+    void bli_axpyf
+            (
+       obj_t[]  alpha,
+       obj_t[]  a,
+       obj_t[]  x,
+       obj_t[]  y
+            );
+    void bli_dotxf
+            (
+       obj_t[]  alpha,
+       obj_t[]  a,
+       obj_t[]  x,
+       obj_t[]  beta,
+       obj_t[]  y
+            );
+    void bli_dotxaxpyf
+            (
+       obj_t[]  alpha,
+       obj_t[]  at,
+       obj_t[]  a,
+       obj_t[]  w,
+       obj_t[]  x,
+       obj_t[]  beta,
+       obj_t[]  y,
+       obj_t[]  z
+            );
+    //------Level 1f----------
+
+    //------Level 2----------
+    void bli_gemv(
+       obj_t[]  alpha,
+       obj_t[]  a,
+       obj_t[]  x,
+       obj_t[]  beta,
+       obj_t[]  y);
+    void bli_ger(
+       obj_t[]  alpha,
+       obj_t[]  x,
+       obj_t[]  y,
+       obj_t[]  a);
+    void bli_hemv(
+       obj_t[]  alpha,
+       obj_t[]  a,
+       obj_t[]  x,
+       obj_t[]  beta,
+       obj_t[]  y);
+    void bli_her(
+       obj_t[]  alpha,
+       obj_t[]  x,
+       obj_t[]  a);
+    void bli_her2(
+       obj_t[]  alpha,
+       obj_t[]  x,
+       obj_t[]  y,
+       obj_t[]  a);
+    void bli_symv(
+       obj_t[]  alpha,
+       obj_t[]  a,
+       obj_t[]  x,
+       obj_t[]  beta,
+       obj_t[]  y);
+    void bli_syr(
+       obj_t[]  alpha,
+       obj_t[]  x,
+       obj_t[]  a);
+    void bli_syr2(
+       obj_t[]  alpha,
+       obj_t[]  x,
+       obj_t[]  y,
+       obj_t[]  a);
+    void bli_trmv(
+       obj_t[]  alpha,
+       obj_t[]  a,
+       obj_t[]  x);
+    void bli_trsv(
+       obj_t[]  alpha,
+       obj_t[]  a,
+       obj_t[]  y);
+    //------Level 2----------
+
+    //------Level 3----------
+    void bli_gemm
+    (
+       obj_t[]  alpha,
+       obj_t[]  a,
+       obj_t[]  b,
+       obj_t[]  beta,
+       obj_t[]  c);
+    void bli_gemmt(
+       obj_t[]  alpha,
+       obj_t[]  a,
+       obj_t[]  b,
+       obj_t[]  beta,
+       obj_t[]  c);
+    void bli_hemm(side_t  sidea,
+       obj_t[]  alpha,
+       obj_t[]  a,
+       obj_t[]  b,
+       obj_t[]  beta,
+       obj_t[]  c);
+    void bli_herk(
+       obj_t[]  alpha,
+       obj_t[]  a,
+       obj_t[]  beta,
+       obj_t[]  c);
+    void bli_her2k(
+       obj_t[]  alpha,
+       obj_t[]  a,
+       obj_t[]  b,
+       obj_t[]  beta,
+       obj_t[]  c);
+    void bli_symm(side_t  sidea,
+       obj_t[]  alpha,
+       obj_t[]  a,
+       obj_t[]  b,
+       obj_t[]  beta,
+       obj_t[]  c);
+    void bli_syrk(
+       obj_t[]  alpha,
+       obj_t[]  a,
+       obj_t[]  beta,
+       obj_t[]  c);
+    void bli_syr2k(
+       obj_t[]  alpha,
+       obj_t[]  a,
+       obj_t[]  b,
+       obj_t[]  beta,
+       obj_t[]  c);
+    void bli_trmm(side_t  sidea,
+       obj_t[]  alpha,
+       obj_t[]  a,
+       obj_t[]  b);
+    void bli_trmm3(side_t sidea,
+       obj_t[]  alpha,
+       obj_t[]  a,
+       obj_t[]  b,
+       obj_t[]  beta,
+       obj_t[]  c);
+    void bli_trsm(side_t  sidea,
+       obj_t[]  alpha,
+       obj_t[]  a,
+       obj_t[]  b);
+    //------Level 3----------
 
     void bli_obj_create_1x1(num_t dt, @RefArg obj_t[] obj);
     void bli_obj_create_1x1_with_attached_buffer(num_t dt, MemorySegment p, @RefArg obj_t[] obj);
@@ -193,7 +387,6 @@ public interface blis_oapi extends Passport {
     int bli_getijm(long i, long j, obj_t[] b, @RefArg double[] ar, @RefArg double[] ai);
     int bli_setijm(double ar, double ai, long i, long j, obj_t[] b);
     void bli_acquire_mpart(long i, long j, long m, long n, obj_t[] obj, @RefArg obj_t[] sub_obj);
-    void bli_setm(obj_t[] alpha, obj_t[] x);
 
     void bli_init( );
     void bli_finalize(  );
