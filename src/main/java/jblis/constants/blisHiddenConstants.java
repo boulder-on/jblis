@@ -70,4 +70,10 @@ public interface blisHiddenConstants {
     int BLIS_BITVAL_HERMITIAN =    ( 0x1 << BLIS_STRUC_SHIFT );
     int BLIS_BITVAL_SYMMETRIC  =   ( 0x2 << BLIS_STRUC_SHIFT );
     int BLIS_BITVAL_TRIANGULAR  =  ( 0x3 << BLIS_STRUC_SHIFT );
+
+    int BLIS_STRUC_NUM_BITS = 2;
+    int BLIS_STRUC_BITS =  ( ( ( 1 << BLIS_STRUC_NUM_BITS             ) - 1 ) << BLIS_STRUC_SHIFT );
+
+    int BLIS_COMP_PREC_SHIFT   =          ( BLIS_STRUC_SHIFT + BLIS_STRUC_NUM_BITS );
+    int BLIS_COMP_PREC_BIT   = ( ( ( 1 << BLIS_PRECISION_NUM_BITS         ) - 1 ) << BLIS_COMP_PREC_SHIFT );
 }

@@ -81,24 +81,17 @@ public record obj_t(MemorySegment root,
                 1, 1, 1, null, 0, 0 , 0, 0);
     }
 
+    public static obj_t updateInfo(obj_t orig, int newInfo)
+    {
+        return new obj_t(orig.root, orig.off, orig.dim, orig.diag_off, newInfo,
+                orig.info2, orig.elem_size, orig.buffer, orig.rs, orig.cs, orig.is,
+                orig.scalar, orig.ps, orig.pd, orig.m_panel, orig.n_panel);
+    }
 
-//        blis_h.C_POINTER.withName("root"),
-//                MemoryLayout.sequenceLayout(2, blis_h.C_LONG).withName("off"),
-//        MemoryLayout.sequenceLayout(2, blis_h.C_LONG).withName("dim"),
-//        blis_h.C_LONG.withName("diag_off"),
-//                blis_h.C_INT.withName("info"),
-//                blis_h.C_INT.withName("info2"),
-//                blis_h.C_LONG.withName("elem_size"),
-//                blis_h.C_POINTER.withName("buffer"),
-//                blis_h.C_LONG.withName("rs"),
-//                blis_h.C_LONG.withName("cs"),
-//                blis_h.C_LONG.withName("is"),
-//                dcomplex.layout().withName("scalar"),
-//        blis_h.C_LONG.withName("m_padded"),
-//                blis_h.C_LONG.withName("n_padded"),
-//                blis_h.C_LONG.withName("ps"),
-//                blis_h.C_LONG.withName("pd"),
-//                blis_h.C_LONG.withName("m_panel"),
-//                blis_h.C_LONG.withName("n_panel")
-
+    public static obj_t updateOffset(obj_t orig, long newOffset)
+    {
+        return new obj_t(orig.root, orig.off, orig.dim, newOffset, orig.info,
+                orig.info2, orig.elem_size, orig.buffer, orig.rs, orig.cs, orig.is,
+                orig.scalar, orig.ps, orig.pd, orig.m_panel, orig.n_panel);
+    }
 }

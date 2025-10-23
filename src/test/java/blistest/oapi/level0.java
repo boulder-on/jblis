@@ -52,7 +52,8 @@ public class level0 {
             // There is one more way to create an object. Like the previous method,
             // it also avoids memory allocation by referencing a special "internal"
             // scalar that is invisibly part of every object.
-            blis.bli_obj_scalar_init_detached(dt, kappa );
+//            blis.bli_obj_scalar_init_detached(dt, kappa );
+            blis.bli_obj_create(dt, 1, 1, 0, 0, kappa);
 
             // Digression: In the most common cases, there is no need to create scalar
             // objects to begin with. That's because BLIS comes with three ready-to-use
