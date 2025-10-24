@@ -14,7 +14,7 @@ import static java.lang.foreign.ValueLayout.*;
 
 public record constdata_t(float s, double d, scomplex c, dcomplex z, long i) {
 
-    private static final GroupLayout StructLayout = Utils.makeStruct(
+    public static final GroupLayout StructLayout = Utils.makeStruct(
             JAVA_FLOAT.withName("s"),
             JAVA_DOUBLE.withName("d"),
             JAVA_FLOAT.withName("cr"),

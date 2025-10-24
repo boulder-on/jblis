@@ -22,7 +22,7 @@ https://www.youtube.com/watch?v=hBffN0xW784&t=691s
 
 1. git clone https://github.com/flame/blis.git
 2. git checkout 2.0   <- important since this is what I built and experimented against
-3. ./configure auto
+3. ./configure -t openmp auto
 4. make
 5. make install or find the .so build by make and copy it to the jblis folder root.
 
@@ -34,7 +34,7 @@ https://github.com/flame/blis/tree/master/examples
 to
 https://github.com/boulder-on/jblis/tree/main/src/test/java/blistest
 
-The ported examples mainly match the expected output from the C versions, though there are discrepencies. 
+The ported examples all match the expected output from the C versions. 
 
 If you know how to use blis then the main thing you will need to add to your code is:
 
