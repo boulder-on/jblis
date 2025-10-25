@@ -12,6 +12,8 @@ I got the idea for this project from this DEVOXX video by Paul Sandoz
 
 https://www.youtube.com/watch?v=hBffN0xW784&t=691s
 
+To be clear, I have not taken the wrapper as far as he suggested in the video. I've wrapped BLIS in a way that allows you to access it with vanilla Java.
+
 ## Before you begin
 
 - BLIS only works on linux (and some unix ports) and Mac, there is no Windows version
@@ -80,4 +82,5 @@ In order to make the library presented here, I used the extensive BLIS documenta
 
 I also used the jextract generated code to help with a few items (some method signatures
 that were wrong in the docs as well as some struct definitions that were not clear
+
 in the C code).
