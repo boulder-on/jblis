@@ -2,10 +2,11 @@ package jblis.tapi;
 
 import jblis.types.scomplex;
 import jblis.types.*;
+import jpassport.Passport;
 import jpassport.annotations.Critical;
 import jpassport.annotations.RefArg;
 
-public interface blis_tapiComplexFloat {
+public interface blis_tapiComplexFloat extends Passport {
     //------LEVEL 1v-----------------
     void bli_caddv(conj_t conjx,
                    long dim_t,
